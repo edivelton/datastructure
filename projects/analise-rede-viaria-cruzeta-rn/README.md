@@ -4,7 +4,7 @@ Este projeto analisa a malha viária de **Cruzeta/RN** como um grafo, usando dad
 
 A proposta é responder, com base em evidências quantitativas e visuais, quais elementos da rede urbana se comportam como hubs, quais pontos concentram intermediação, como o k-core caracteriza a estrutura da rede e como a leitura geográfica difere da leitura estrutural por layout de força.
 
-> Situação atual: o notebook principal já inclui a geração do mapa interativo, as tabelas e os gráficos quantitativos foram gerados, o arquivo `.graphml` está pronto para o Gephi, as visualizações do Gephi foram incorporadas ao README e as questões analíticas já foram respondidas. A única pendência planejada é inserir o link do vídeo após a gravação.
+> Situação atual: o notebook principal já inclui a geração do mapa interativo, as tabelas e os gráficos quantitativos foram gerados, o arquivo `.graphml` está pronto para o Gephi, as visualizações do Gephi foram incorporadas ao README e as questões analíticas já foram respondidas.
 
 ## Autores
 
@@ -204,7 +204,7 @@ A betweenness identifica nós que aparecem com frequência nos menores caminhos 
 | 2098144099 | 3 | 0.335957 | 0.000313 | 2 | Avenida Carmelita Monteiro da Silva / RN-288 / secondary / Rua Félix Pereira de Araújo / secondary |
 | 2340078036 | 3 | 0.334943 | 0.000312 | 2 | Avenida Carmelita Monteiro da Silva / RN-288 / secondary / Rua Francisco Raimundo de Araújo / residential |
 
-Observa-se que vários nós de maior betweenness estão associados à **RN-288** e à **Avenida Carmelita Monteiro da Silva**, sugerindo um eixo de circulação importante na estrutura da rede. Essa interpretação ainda deve ser confirmada visualmente no Gephi.
+Observa-se que vários nós de maior betweenness estão associados à **RN-288** e à **Avenida Carmelita Monteiro da Silva**, indicando um eixo de circulação importante na estrutura da rede. Essa leitura também aparece nas visualizações do Gephi e no mapa interativo, onde esses nós podem ser localizados no território municipal.
 
 ## Comparação: grau x betweenness
 
@@ -270,7 +270,7 @@ O mapa foi ajustado para abrir com as camadas mais úteis já marcadas: rede vi�
 
 ## Visualizações geográficas no Gephi
 
-As imagens abaixo foram produzidas no Gephi a partir do arquivo `outputs/gephi/cruzeta_rn_rede_urbana.graphml`. Como o recorte usado é o município de Cruzeta/RN, e não apenas a sede urbana, a rede aparece muito espalhada por causa das conexões rurais e dos sítios. Por isso, alguns prints foram recortados para destacar o que precisa ser interpretado em cada pergunta. Quando for necessário navegar pelo município inteiro sem perder contexto, o mapa HTML interativo deve ser usado como complemento.
+As imagens abaixo foram produzidas no Gephi a partir do arquivo `outputs/gephi/cruzeta_rn_rede_urbana.graphml`. Como o recorte usado é o município de Cruzeta/RN, e não apenas a sede urbana, a rede aparece muito espalhada por causa das conexões rurais e dos sítios. Por isso, alguns prints foram recortados para destacar o que precisa ser interpretado em cada pergunta. Para navegar pelo município inteiro sem perder contexto, use o mapa HTML interativo como complemento.
 
 ### 1. Geo Layout: core number e grau
 
@@ -278,11 +278,15 @@ As imagens abaixo foram produzidas no Gephi a partir do arquivo `outputs/gephi/c
 
 Esta visualização preserva a posição geográfica dos nós. As cores representam o `core_number` e o tamanho dos nós representa o `degree`. Ela mostra que a parte mais densa da rede se concentra na sede urbana, enquanto as ligações periféricas e rurais se espalham pelo município. Os cortes na imagem são consequência direta da extensão territorial do município: exibir todo o grafo em uma única imagem reduziria demais os detalhes da área urbana.
 
+Para explorar a mesma leitura com zoom: [abra o mapa interativo](https://edivelton.github.io/datastructure/projects/analise-rede-viaria-cruzeta-rn/outputs/maps/mapa_interativo_rede_viaria_cruzeta.html) e deixe marcadas as camadas **Rede viária**, **Todos os nós**, **K-core escolhido** e **Top 10% por grau**.
+
 ### 2. Geo Layout: betweenness e grau
 
 ![Geo Layout com betweenness e grau](outputs/gephi/figures/02_geografico_betweenness_degree.png)
 
 Nesta imagem, o tamanho dos nós continua associado ao grau, mas a coloração evidencia a betweenness. Os pontos mais escuros aparecem em corredores de passagem, especialmente no eixo associado à RN-288 e à Avenida Carmelita Monteiro da Silva. Isso ajuda a mostrar que intermediação não é a mesma coisa que quantidade de conexões locais.
+
+Para explorar sem o recorte da imagem: [abra o mapa interativo](https://edivelton.github.io/datastructure/projects/analise-rede-viaria-cruzeta-rn/outputs/maps/mapa_interativo_rede_viaria_cruzeta.html) e mantenha marcadas as camadas **Rede viária**, **Todos os nós**, **Top 10% por grau** e **Top 10 betweenness**.
 
 ### 3. Geo Layout: top 10 por betweenness
 
@@ -290,11 +294,15 @@ Nesta imagem, o tamanho dos nós continua associado ao grau, mas a coloração e
 
 Esta visualização destaca os 10 nós com maior betweenness. A concentração desses pontos em um trecho específico da rede indica que parte relevante dos menores caminhos passa por esse corredor. O mapa interativo permite aproximar esse mesmo trecho e clicar nos nós para ver grau, betweenness, closeness, core number e vias incidentes.
 
+Para conferir os nós destacados diretamente no território: [abra o mapa interativo](https://edivelton.github.io/datastructure/projects/analise-rede-viaria-cruzeta-rn/outputs/maps/mapa_interativo_rede_viaria_cruzeta.html) e deixe marcada a camada **Top 10 betweenness**. Se quiser uma leitura mais limpa, desmarque **Todos os nós**.
+
 ### 4. Filtro: top 10% por grau
 
 ![Filtro top 10% por grau](outputs/gephi/figures/04_filtro_top10pct_grau.png)
 
 Este filtro mostra os nós classificados no top 10% por grau. Como o grau máximo da rede é 4, a seleção fica concentrada em cruzamentos de maior conectividade local. A imagem deixa claro que esses nós aparecem sobretudo na malha urbana mais densa, mas não coincidem integralmente com os nós de maior betweenness.
+
+Para navegar por esses pontos no mapa: [abra o HTML interativo](https://edivelton.github.io/datastructure/projects/analise-rede-viaria-cruzeta-rn/outputs/maps/mapa_interativo_rede_viaria_cruzeta.html) e deixe marcada a camada **Top 10% por grau**.
 
 ### 5. Filtro: k-core escolhido
 
@@ -302,17 +310,23 @@ Este filtro mostra os nós classificados no top 10% por grau. Como o grau máxim
 
 O k-core escolhido foi `k = 2`, pois o maior core number encontrado na rede foi 2. O filtro mantém 480 dos 607 nós, aproximadamente 79.08% da rede. Isso mostra que o k-core remove extremidades e pontos mais periféricos, mas ainda preserva grande parte da estrutura municipal; por esse motivo, ele é útil para separar a rede persistente, mas não é seletivo o suficiente para identificar sozinho os hubs mais importantes.
 
+Para visualizar esse filtro com zoom: [abra o mapa interativo](https://edivelton.github.io/datastructure/projects/analise-rede-viaria-cruzeta-rn/outputs/maps/mapa_interativo_rede_viaria_cruzeta.html), marque **K-core escolhido** e, se quiser isolar melhor o núcleo, desmarque **Todos os nós**.
+
 ### 6. ForceAtlas2: betweenness e grau
 
 ![ForceAtlas2 com betweenness e grau](outputs/gephi/figures/06_forceatlas_betweenness_degree.png)
 
 O ForceAtlas2 abandona a posição geográfica real e reorganiza a rede pela conectividade. Nessa leitura estrutural, os nós com maior betweenness formam uma sequência de passagem entre regiões do grafo, funcionando como pontos de articulação. A imagem reforça que a importância global de um nó depende de sua posição nos caminhos da rede, não apenas do número de ruas conectadas diretamente a ele.
 
+Essa visualização não tem equivalente direto no HTML, porque o HTML preserva a posição geográfica real. Ela deve ser lida como uma visão estrutural complementar ao mapa.
+
 ### 7. ForceAtlas2: core number e grau
 
 ![ForceAtlas2 com core number e grau](outputs/gephi/figures/07_forceatlas_core_degree.png)
 
 Nesta visualização estrutural, a maior parte da rede permanece no core 2, enquanto os nós de core 1 aparecem como extremidades e ramos periféricos. Isso confirma a leitura do k-core: a rede possui um núcleo amplo e muitas pontas, padrão esperado em uma malha viária municipal que mistura área urbana e conexões rurais.
+
+Assim como a visualização anterior, esta imagem é própria do ForceAtlas2 no Gephi. O HTML complementa a análise quando o objetivo é localizar esses nós geograficamente.
 
 ## Arquivo para Gephi
 
@@ -336,9 +350,9 @@ Atributos importantes presentes nos nós:
 | `top_10_betweenness` | Destaque dos 10 maiores nós por betweenness |
 | `selected_k_core` | Filtro do k-core escolhido |
 
-## Procedimento no Gephi
+## Visualizações no Gephi
 
-O GraphML foi preparado para permitir as visualizações e filtros exigidos no Gephi. As imagens incorporadas ao README foram geradas a partir deste fluxo:
+O GraphML foi preparado para permitir as visualizações e filtros exigidos no Gephi. As imagens incorporadas ao README foram geradas com o seguinte fluxo:
 
 1. Importar `outputs/gephi/cruzeta_rn_rede_urbana.graphml`.
 2. Aplicar **Geo Layout** usando:
@@ -459,16 +473,8 @@ Evidências usadas:
    - `outputs/gephi/`
    - `outputs/maps/`
 4. Abrir `outputs/maps/mapa_interativo_rede_viaria_cruzeta.html` para explorar o mapa com zoom.
-5. Importar o GraphML no Gephi para gerar ou ajustar as visualizações finais.
+5. Importar o GraphML no Gephi para reproduzir as visualizações apresentadas no README.
 
-## Status do projeto
+## Vídeo da apresentação
 
-- [x] Coleta da rede viária com OSMnx.
-- [x] Cálculo das métricas estruturais com NetworkX.
-- [x] Geração de tabelas e gráficos essenciais.
-- [x] Geração do mapa HTML interativo.
-- [x] Exportação do GraphML para o Gephi.
-- [x] Inclusão das visualizações geográficas do Gephi neste README.
-- [x] Inclusão das visualizações estruturais do Gephi com ForceAtlas2.
-- [x] Respostas às questões analíticas do professor.
-- [ ] Inserção do link do vídeo Loom após a gravação.
+Link do vídeo: _inserir após a gravação_.
