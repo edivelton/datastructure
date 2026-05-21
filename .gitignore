@@ -1,0 +1,8 @@
+﻿.venv/
+.venv_analysis/
+__pycache__/
+.ipynb_checkpoints/
+cache/
+preview_slides/
+*.pyc
+.DS_Store

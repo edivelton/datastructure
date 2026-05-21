@@ -1,0 +1,23 @@
+{
+  "regiao": "Cruzeta/RN, Brasil",
+  "consulta_osmnx": "Cruzeta, Rio Grande do Norte, Brazil",
+  "network_type": "drive",
+  "nos": 607,
+  "arestas": 840,
+  "conectado": true,
+  "comprimento_total_km": 211.44264698612014,
+  "densidade": 0.0045671782993785374,
+  "grau_medio": 2.767710049423394,
+  "grau_maximo": 4,
+  "quantidade_top_10pct_grau": 61,
+  "limiar_grau_top_10pct_por_ranking": 4,
+  "nos_com_grau_maior_ou_igual_ao_limiar": 84,
+  "max_core": 2,
+  "k_escolhido": 2,
+  "nos_kcore_escolhido": 480,
+  "arestas_kcore_escolhido": 713,
+  "percentual_nos_kcore_escolhido": 0.7907742998352554,
+  "diametro_nao_ponderado": 43,
+  "raio_nao_ponderado": 29,
+  "sobreposicao_top10_betweenness_com_top10pct_grau": 1
+}

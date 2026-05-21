@@ -1,0 +1,20 @@
+node,degree,betweenness,closeness,core_number,in_top10_degree,in_top10_betweenness,incident_roads
+2098173324,4,0.38767694951313314,0.0003111760358697622,2,True,True,Avenida Carmelita Monteiro da Silva / RN-288 / secondary | Rua Cipriano Lopes Galvão / residential | residential
+2340784260,3,0.3805198701688351,0.00027958767800456333,2,False,True,Avenida Carmelita Monteiro da Silva / RN-288 / secondary | RN-288 / secondary | residential
+314979940,3,0.3726481739082999,0.00027725056897154267,2,False,True,RN-288 / secondary | Rua Maria Izaura de Araújo / residential
+7374755393,3,0.36879142459700515,0.00027682120016891287,2,False,True,RN-288 / secondary | residential
+2340784276,3,0.3582358235823582,0.0002754441747841841,2,False,True,RN-288 / secondary | residential
+2340784271,3,0.35776668575948506,0.00026502256924654396,2,False,True,RN-288 / secondary | unclassified
+7375628953,3,0.3442271499877261,0.0002706181820044856,2,False,True,RN-288 / secondary | residential
+2340028998,3,0.3437743774377438,0.0002721864780820691,2,False,True,RN-288 / secondary | Rua Cipriana Bezerra de Medeiros / residential
+2098144099,3,0.3359572320868451,0.00031261395180088116,2,False,True,Avenida Carmelita Monteiro da Silva / RN-288 / secondary | Rua Felix Pereira de Araujo / secondary
+2340078036,3,0.33494258516760766,0.0003123096269598166,2,False,True,Avenida Carmelita Monteiro da Silva / RN-288 / secondary | Rua Francisco Raimundo de Araujo / residential
+2098133818,4,0.2852467064888307,0.0003204009444191024,2,True,False,Avenida Doutor Sílvio Bezerra de Melo / secondary | Rua Emílio Vale / residential
+2098918029,4,0.2779696151433325,0.00031979967072424655,2,True,False,Praça Celso Azevedo / residential | Rua Felix Pereira de Araujo / secondary | Rua Sebastião Araujo / residential
+2098943368,4,0.2673540081280855,0.00031991291898060775,2,True,False,Avenida Doutor Sílvio Bezerra de Melo; Rua Felix Pereira de Araujo / secondary | Praça Celso Azevedo / residential | Rua Felix Pereira de Araujo / secondary | Rua João Lopes de Araujo / residential
+2098144101,4,0.2668084990317214,0.0003200603698675107,2,True,False,Avenida Doutor Sílvio Bezerra de Melo / secondary | Avenida Doutor Sílvio Bezerra de Melo; Rua Felix Pereira de Araujo / secondary | Rua Miguel Laurentino / residential | residential
+2098144124,4,0.26617025338897526,0.0003183970925435388,2,True,False,Rua Felix Pereira de Araujo / secondary | Rua João Gomes / residential | Rua Raimundo Hermes Dantas / residential
+7375819476,4,0.26599569047813876,0.00032138236694459726,2,True,False,Avenida Doutor Sílvio Bezerra de Melo / secondary | Rua João XXIII / tertiary
+2098144097,4,0.26584294793115676,0.0003201941595992831,2,True,False,Avenida Doutor Sílvio Bezerra de Melo / secondary | Rua Geraldo Lopes de Araujo / residential
+2098144128,4,0.26420642064206423,0.0003189233109303356,2,True,False,Rua Felix Pereira de Araujo / secondary | Rua Leôncio Pires Galvão / residential
+7375826292,4,0.2373728281919101,0.0003191462720315262,2,True,False,Avenida Doutor Sílvio Bezerra de Melo / secondary | residential
