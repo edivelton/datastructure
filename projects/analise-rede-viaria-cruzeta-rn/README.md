@@ -6,6 +6,13 @@ A proposta é responder, com base em evidências quantitativas e visuais, quais 
 
 > Situação atual: o notebook, as tabelas, os gráficos quantitativos e o arquivo `.graphml` já foram gerados. As visualizações finais feitas diretamente no Gephi ainda serão incorporadas ao projeto.
 
+## Autores
+
+| Nome | Curso | Matrícula |
+|---|---|---:|
+| EDIVELTON RAFAETT SILVA DE ARAÚJO | Engenharia de Computação/CT | 20230094613 |
+| FRANCISCO MICARLOS TEIXEIRA PINTO | Engenharia de Computação/CT | 20260000734 |
+
 ## Estrutura do projeto
 
 ```text
