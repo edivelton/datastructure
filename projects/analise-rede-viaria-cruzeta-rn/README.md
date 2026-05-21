@@ -8,10 +8,10 @@ A proposta é responder, com base em evidências quantitativas e visuais, quais 
 
 ## Autores
 
-| Nome | Curso | Matrícula |
-|---|---|---:|
-| EDIVELTON RAFAETT SILVA DE ARAÚJO | Engenharia de Computação/CT | 20230094613 |
-| FRANCISCO MICARLOS TEIXEIRA PINTO | Engenharia de Computação/CT | 20260000734 |
+| Nome | Curso | Matrícula | Perfil |
+|---|---|---:|---|
+| EDIVELTON RAFAETT SILVA DE ARAÚJO | Engenharia de Computação/CT | 20230094613 | - |
+| FRANCISCO MICARLOS TEIXEIRA PINTO | Engenharia de Computação/CT | 20260000734 | [micarlio](https://github.com/micarlio) |
 
 ## Estrutura do projeto
 
