@@ -10,7 +10,7 @@ A proposta é responder, com base em evidências quantitativas e visuais, quais 
 
 | Nome | Curso | Matrícula | Perfil |
 |---|---|---:|---|
-| EDIVELTON RAFAETT SILVA DE ARAÚJO | Engenharia de Computação/CT | 20230094613 | - |
+| EDIVELTON RAFAETT SILVA DE ARAÚJO | Engenharia de Computação/CT | 20230094613 | [edivelton](https://github.com/edivelton) |
 | FRANCISCO MICARLOS TEIXEIRA PINTO | Engenharia de Computação/CT | 20260000734 | [micarlio](https://github.com/micarlio) |
 
 ## Estrutura do projeto
