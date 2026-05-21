@@ -4,7 +4,7 @@ Este projeto analisa a malha viária de **Cruzeta/RN** como um grafo, usando dad
 
 A proposta é responder, com base em evidências quantitativas e visuais, quais elementos da rede urbana se comportam como hubs, quais pontos concentram intermediação, como o k-core caracteriza a estrutura da rede e como a leitura geográfica difere da leitura estrutural por layout de força.
 
-> Situação atual: o notebook, as tabelas, os gráficos quantitativos e o arquivo `.graphml` já foram gerados. As visualizações finais feitas diretamente no Gephi ainda serão incorporadas ao projeto.
+> Situação atual: o notebook principal já inclui a geração do mapa interativo, as tabelas e os gráficos quantitativos foram gerados, o arquivo `.graphml` está pronto para o Gephi e as primeiras visualizações geográficas do Gephi já foram incorporadas ao README.
 
 ## Autores
 
@@ -20,13 +20,19 @@ analise-rede-viaria-cruzeta-rn/
 |-- analise_rede_urbana_cruzeta_rn.ipynb
 |-- README.md
 |-- requirements.txt
+|-- entrega_cruzeta_rn.zip
 `-- outputs/
     |-- figures/
     |   |-- 01_distribuicao_grau_cdf.png
     |   |-- 02_grau_vs_betweenness.png
     |   `-- 03_distribuicao_core.png
     |-- gephi/
-    |   `-- cruzeta_rn_rede_urbana.graphml
+    |   |-- cruzeta_rn_rede_urbana.graphml
+    |   `-- figures/
+    |       |-- 01_geografico_base.png
+    |       `-- 02_geografico_betweenness.png
+    |-- maps/
+    |   `-- mapa_interativo_rede_viaria_cruzeta.html
     `-- tables/
         |-- cruzeta_nodes_metrics.csv
         |-- cruzeta_summary.json
@@ -43,6 +49,7 @@ analise-rede-viaria-cruzeta-rn/
 - **NetworkX**: cálculo das métricas de grafos.
 - **Pandas/Numpy**: organização tabular e estatística dos resultados.
 - **Matplotlib/Seaborn**: gráficos quantitativos no notebook.
+- **Folium/Leaflet**: mapa HTML interativo com zoom, camadas e popups.
 - **Gephi**: visualizações geográfica e estrutural da rede.
 
 ## Metodologia
@@ -234,6 +241,34 @@ A closeness centrality mede quão próximo um nó está dos demais, considerando
 | 2340015648 | 3 | 0.091307 | 0.000320 | 2 | Rua Antônio Apolinário / residential / Rua João XXIII / tertiary |
 | 2098144097 | 4 | 0.265843 | 0.000320 | 2 | Avenida Doutor Sílvio Bezerra de Melo / secondary / Rua Geraldo Lopes de Araújo / residential |
 
+## Mapa interativo
+
+O notebook principal gera um mapa HTML interativo com zoom, deslocamento, controle de camadas e popups por nó. Esse recurso complementa as imagens estáticas, porque permite explorar o município inteiro sem perder o contexto espacial da rede.
+
+[Abrir mapa interativo da rede viária de Cruzeta/RN](https://edivelton.github.io/datastructure/projects/analise-rede-viaria-cruzeta-rn/outputs/maps/mapa_interativo_rede_viaria_cruzeta.html)
+
+Arquivo versionado no projeto:
+
+```text
+outputs/maps/mapa_interativo_rede_viaria_cruzeta.html
+```
+
+Camadas disponíveis no mapa:
+
+- rede viária;
+- todos os nós;
+- k-core escolhido;
+- top 10% dos nós por grau;
+- top 10 nós por betweenness.
+
+## Visualizações geográficas no Gephi
+
+As imagens abaixo foram produzidas no Gephi usando a posição geográfica dos nós. Elas ajudam a interpretar a rede municipal sem depender apenas de uma imagem geral muito grande ou recortada.
+
+![Visualização geográfica base da rede](outputs/gephi/figures/01_geografico_base.png)
+
+![Visualização geográfica com destaque de betweenness](outputs/gephi/figures/02_geografico_betweenness.png)
+
 ## Arquivo para Gephi
 
 O arquivo abaixo contém o grafo enriquecido com as métricas calculadas:
@@ -256,9 +291,9 @@ Atributos importantes presentes nos nós:
 | `top_10_betweenness` | Destaque dos 10 maiores nós por betweenness |
 | `selected_k_core` | Filtro do k-core escolhido |
 
-## Procedimento previsto no Gephi
+## Procedimento no Gephi
 
-A etapa de Gephi ainda deve ser finalizada. O procedimento planejado é:
+O GraphML foi preparado para permitir as visualizações e filtros exigidos no Gephi. As imagens geográficas já incorporadas ao README foram geradas a partir deste fluxo:
 
 1. Importar `outputs/gephi/cruzeta_rn_rede_urbana.graphml`.
 2. Aplicar **Geo Layout** usando:
@@ -268,8 +303,10 @@ A etapa de Gephi ainda deve ser finalizada. O procedimento planejado é:
    - tamanho do nó proporcional a `degree`;
    - cor do nó por `core_number`;
    - destaque para `top_10_betweenness == 1`.
-4. Criar uma visualização estrutural com **ForceAtlas2**.
-5. Aplicar os filtros obrigatórios:
+4. Exportar a visualização geográfica base.
+5. Exportar a visualização geográfica com destaque dos nós de maior betweenness.
+6. Criar uma visualização estrutural com **ForceAtlas2**, quando for necessário comparar a forma geográfica real com a organização estrutural do grafo.
+7. Aplicar os filtros obrigatórios:
    - `top_10pct_degree == 1`;
    - `selected_k_core == 1` ou `core_number >= 2`.
 
@@ -289,11 +326,11 @@ A betweenness revela pontos de intermediação. Vários nós com grau 3 aparecem
 
 ### 4. O que muda entre a posição geográfica real e o layout estrutural?
 
-Essa pergunta ainda depende das visualizações no Gephi. A expectativa metodológica é que o Geo Layout preserve a forma real da cidade, enquanto o ForceAtlas2 reorganize a rede pela conectividade, evidenciando agrupamentos, pontes e corredores estruturais.
+As imagens geográficas do Gephi e o mapa interativo preservam a posição real dos nós, mostrando a dispersão da rede municipal e a concentração da malha na sede urbana. Para comparar com a leitura estrutural, o próximo passo no Gephi é aplicar o ForceAtlas2, que reorganiza o grafo pela conectividade e tende a evidenciar agrupamentos, pontes e corredores estruturais.
 
 ### 5. Existem regiões críticas para mobilidade urbana na área analisada?
 
-Os dados de betweenness sugerem pontos críticos associados à RN-288 e à Avenida Carmelita Monteiro da Silva. Essa conclusão ainda deve ser validada no Gephi, observando a posição geográfica desses nós destacados e sua relação com a malha urbana.
+Os dados de betweenness sugerem pontos críticos associados à RN-288 e à Avenida Carmelita Monteiro da Silva. A visualização geográfica com destaque de betweenness e o mapa interativo ajudam a localizar esses nós na malha, permitindo verificar se eles atuam como ligação entre setores distintos da rede.
 
 ### 6. A rede parece homogênea ou apresenta concentração estrutural?
 
@@ -311,14 +348,17 @@ A resposta final depende da conferência visual no Gephi e do conhecimento local
    - `outputs/figures/`
    - `outputs/tables/`
    - `outputs/gephi/`
-4. Importar o GraphML no Gephi para gerar as visualizações finais.
+   - `outputs/maps/`
+4. Abrir `outputs/maps/mapa_interativo_rede_viaria_cruzeta.html` para explorar o mapa com zoom.
+5. Importar o GraphML no Gephi para gerar ou ajustar as visualizações finais.
 
 ## Status do projeto
 
 - [x] Coleta da rede viária com OSMnx.
 - [x] Cálculo das métricas estruturais com NetworkX.
 - [x] Geração de tabelas e gráficos essenciais.
+- [x] Geração do mapa HTML interativo.
 - [x] Exportação do GraphML para o Gephi.
-- [ ] Produção das visualizações finais no Gephi.
-- [ ] Inclusão das imagens finais do Gephi neste README.
+- [x] Inclusão das visualizações geográficas do Gephi neste README.
+- [ ] Produção da visualização estrutural no Gephi com ForceAtlas2, caso seja usada na apresentação final.
 - [ ] Inserção do link do vídeo Loom após a gravação.
