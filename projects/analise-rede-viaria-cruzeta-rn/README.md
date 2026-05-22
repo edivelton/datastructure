@@ -4,8 +4,6 @@ Este projeto analisa a malha viária de **Cruzeta/RN** como um grafo, usando dad
 
 A proposta é responder, com base em evidências quantitativas e visuais, quais elementos da rede urbana se comportam como hubs, quais pontos concentram intermediação, como o k-core caracteriza a estrutura da rede e como a leitura geográfica difere da leitura estrutural por layout de força.
 
-> Situação atual: o notebook principal já inclui a geração do mapa interativo, as tabelas e os gráficos quantitativos foram gerados, o arquivo `.graphml` está pronto para o Gephi, as visualizações do Gephi foram incorporadas ao README e as questões analíticas já foram respondidas.
-
 ## Autores
 
 | Nome | Curso | Matrícula | Perfil |
