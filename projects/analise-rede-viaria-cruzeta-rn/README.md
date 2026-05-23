@@ -11,6 +11,12 @@ A proposta é responder, com base em evidências quantitativas e visuais, quais 
 | EDIVELTON RAFAETT SILVA DE ARAÚJO | Engenharia de Computação/CT | 20230094613 | [edivelton](https://github.com/edivelton) |
 | FRANCISCO MICARLOS TEIXEIRA PINTO | Engenharia de Computação/CT | 20260000734 | [micarlio](https://github.com/micarlio) |
 
+## Divisão das atividades
+
+- Edivelton e Francisco produziram os códigos juntos.
+- Edivelton ficou responsável pelas visualizações no Gephi.
+- Francisco Micarlos ficou responsável pelas perguntas analíticas.
+
 ## Estrutura do projeto
 
 ```text
@@ -475,4 +481,5 @@ Evidências usadas:
 
 ## Vídeo da apresentação
 
-Link do vídeo: _inserir após a gravação_.
+- [Loom](https://www.loom.com/share/72120488ccc44b49853c22e30f70d39c)
+- [YouTube](https://youtu.be/Toi1VuF8nSY)
