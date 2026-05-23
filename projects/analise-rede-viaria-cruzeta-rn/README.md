@@ -13,9 +13,9 @@ A proposta é responder, com base em evidências quantitativas e visuais, quais 
 
 ## Divisão das atividades
 
-- Edivelton e Francisco produziram os códigos juntos.
-- Edivelton ficou responsável pelas visualizações no Gephi.
-- Francisco Micarlos ficou responsável pelas perguntas analíticas.
+- Edivelton Rafaett [@edivelton](https://github.com/edivelton) e Francisco Micarlos [@micarlio](https://github.com/micarlio) produziram os códigos juntos.
+- Edivelton Rafaett [@edivelton](https://github.com/edivelton) ficou responsável pelas visualizações no Gephi.
+- Francisco Micarlos [@micarlio](https://github.com/micarlio) ficou responsável pelas perguntas analíticas.
 
 ## Estrutura do projeto
 
