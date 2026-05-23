@@ -13,9 +13,10 @@ A proposta é responder, com base em evidências quantitativas e visuais, quais 
 
 ## Divisão das atividades
 
-- Edivelton Rafaett [@edivelton](https://github.com/edivelton) e Francisco Micarlos [@micarlio](https://github.com/micarlio) produziram os códigos juntos.
-- Edivelton Rafaett [@edivelton](https://github.com/edivelton) ficou responsável pelas visualizações no Gephi.
-- Francisco Micarlos [@micarlio](https://github.com/micarlio) ficou responsável pelas perguntas analíticas.
+| Integrante | GitHub | Atribuições |
+|---|---|---|
+| Edivelton Rafaett | [@edivelton](https://github.com/edivelton) | Produção dos códigos em conjunto; visualizações no Gephi. |
+| Francisco Micarlos | [@micarlio](https://github.com/micarlio) | Produção dos códigos em conjunto; perguntas analíticas. |
 
 ## Estrutura do projeto
 
