@@ -3,6 +3,9 @@
 __pycache__/
 .ipynb_checkpoints/
 cache/
+cache_grafos/
+saidas_ridesmart_aed2/
+*_executado_tmp.ipynb
 preview_slides/
 *.pyc
 .DS_Store
