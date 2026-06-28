@@ -217,6 +217,40 @@ Para cada algoritmo, aparecem camadas de:
 
 A cor vermelha é reservada para as vias penalizadas pelo trânsito sintético. As rotas usam cores diferentes para facilitar comparação visual.
 
+## Visualizações do Exemplo
+
+As imagens abaixo foram geradas a partir de uma execução do notebook em Natal/RN.
+
+### Mapa inicial dos candidatos
+
+Este mapa mostra a origem **A**, o destino **B**, o raio máximo de caminhada **X** e os candidatos **P** encontrados na malha de pedestres.
+
+![Mapa inicial dos candidatos](images/01_mapa_inicial_candidatos.png)
+
+### Mapa final com filtros
+
+O mapa consolidado reúne os filtros por algoritmo, critério e cenário. A partir dele é possível ligar/desligar rotas para comparar visualmente as soluções.
+
+![Mapa final com filtros](images/02_mapa_final_filtros.png)
+
+### Trânsito sintético
+
+As vias em vermelho representam trechos penalizados pelo trânsito sintético. Esses trechos tiveram o peso `traffic_time` aumentado.
+
+![Trânsito sintético](images/03_transito_sintetico.png)
+
+### Comparação de rotas
+
+Nesta visualização, várias camadas foram ligadas ao mesmo tempo para demonstrar como o mapa pode ser usado para comparar rotas e cenários.
+
+![Comparação de rotas](images/04_comparacao_rotas.png)
+
+### Ganho ao caminhar
+
+A tabela resume o ganho obtido ao caminhar até **P** em comparação com o caso sem caminhada.
+
+![Tabela de ganho ao caminhar](images/05_tabela_ganho.png)
+
 ## Saídas Geradas
 
 Ao executar o notebook, os arquivos são salvos em:
@@ -278,39 +312,6 @@ ridesmart-aed2/
 |-- README.md
 `-- RideSmart_AED2.ipynb
 ```
-
-## Imagens Pendentes Para Finalizar o README
-
-Para deixar o GitHub visualmente completo, ainda vale adicionar algumas imagens do notebook executado.
-
-Imagens recomendadas:
-
-1. **Mapa inicial dos candidatos**
-   - Mostrar **A**, **B**, o raio **X** e os pontos **P**.
-   - Nome sugerido: `images/01_mapa_inicial_candidatos.png`.
-
-2. **Mapa final com filtros**
-   - Mostrar o menu de camadas aberto, com casos com caminhada e sem caminhada.
-   - Nome sugerido: `images/02_mapa_final_filtros.png`.
-
-3. **Camada de trânsito sintético**
-   - Mostrar as vias penalizadas em vermelho.
-   - Nome sugerido: `images/03_transito_sintetico.png`.
-
-4. **Comparação de rotas**
-   - Mostrar duas ou mais rotas ligadas ao mesmo tempo para evidenciar a comparação visual.
-   - Nome sugerido: `images/04_comparacao_rotas.png`.
-
-5. **Tabela de ganho ao caminhar**
-   - Print da tabela final mostrando `ganho`, `ganho_percentual` e `caminhar_ajudou`.
-   - Nome sugerido: `images/05_tabela_ganho.png`.
-
-Formato recomendado:
-
-- PNG;
-- largura entre 1400 px e 1800 px;
-- navegador em zoom 90% ou 100%;
-- sem cortar o menu de filtros quando ele for importante.
 
 ## Limitações da Modelagem
 
