@@ -344,6 +344,12 @@ Comparações recomendadas:
 | Mostrar impacto do trânsito | Base + vias penalizadas + rota com trânsito do mesmo algoritmo |
 | Comparar distância contra tempo | Base + menor distância + tempo sem trânsito do mesmo algoritmo |
 
+O menu real do mapa final fica organizado assim:
+
+![Filtros do mapa interativo](images/11_filtros_mapa.png)
+
+Esse painel permite ligar e desligar grupos de camadas. A camada **Base** mostra o contexto do problema. A camada **Trânsito sintético** destaca as vias penalizadas. Os blocos **Casos com caminhada** e **Caso sem caminhada (A = P)** permitem comparar as soluções com e sem deslocamento a pé.
+
 ## Tabelas de Resultado
 
 O notebook produz duas tabelas principais.
@@ -464,7 +470,7 @@ Leitura esperada:
 
 ## Visualizações do Mapa
 
-As imagens abaixo devem ser geradas a partir de uma execução do notebook. A recomendação é capturar prints com uma ou duas camadas de rota por vez, para preservar a leitura.
+As imagens abaixo foram geradas a partir de uma execução do notebook. Cada print usa poucas camadas de rota para preservar a leitura e evitar sobreposição visual.
 
 ### 1. Mapa inicial dos candidatos
 
@@ -476,7 +482,7 @@ Mostra **A**, **B**, o raio **X**, os candidatos caminháveis e os candidatos v�
 
 Mostra um único filtro com caminhada ativo. A imagem deve evidenciar a caminhada até **P**, a aproximação até o nó de carro e a rota de carro até **B**.
 
-Camadas sugeridas:
+Camadas usadas:
 
 - Base;
 - uma rota com caminhada de apenas um algoritmo e um critério.
@@ -487,7 +493,7 @@ Camadas sugeridas:
 
 Mostra duas camadas do mesmo algoritmo e critério: uma com caminhada e outra sem caminhada. Essa imagem ajuda a explicar visualmente o ganho.
 
-Camadas sugeridas:
+Camadas usadas:
 
 - Base;
 - A* com caminhada, rota mais rápida sem trânsito;
@@ -499,7 +505,7 @@ Camadas sugeridas:
 
 Mostra as vias penalizadas em vermelho e uma rota calculada com `traffic_time`.
 
-Camadas sugeridas:
+Camadas usadas:
 
 - Base;
 - vias penalizadas pelo trânsito sintético;
@@ -511,7 +517,7 @@ Camadas sugeridas:
 
 Mostra, para um mesmo algoritmo, a rota de menor distância e a rota de menor tempo sem trânsito. Essa imagem evidencia que pesos diferentes podem produzir escolhas diferentes.
 
-Camadas sugeridas:
+Camadas usadas:
 
 - Base;
 - menor rota em distância;
@@ -519,11 +525,11 @@ Camadas sugeridas:
 
 ![Comparação de critérios](images/05_comparacao_criterios.png)
 
-## Imagens Necessárias
+## Imagens Incluídas no README
 
-Para deixar o README completo visualmente, a pasta `images/` deve conter os seguintes prints:
+O README usa os seguintes arquivos da pasta `images/`:
 
-| Arquivo | O que mostrar | Filtros recomendados |
+| Arquivo | Conteúdo | Camadas exibidas |
 |---|---|---|
 | `01_mapa_inicial_candidatos.png` | mapa inicial com **A**, **B**, raio **X** e candidatos **P** | apenas o mapa inicial |
 | `02_rota_com_caminhada.png` | rota com caminhada até **P** e embarque no nó de carro | Base + uma rota com caminhada |
@@ -535,6 +541,7 @@ Para deixar o README completo visualmente, a pasta `images/` deve conter os segu
 | `08_grafico_nos_expandidos.png` | gráfico de nós expandidos | print do gráfico correspondente |
 | `09_grafico_ganho_percentual.png` | gráfico de ganho percentual | print do gráfico correspondente |
 | `10_grafico_impacto_caminhada.png` | gráfico de composição do tempo total | print do gráfico correspondente |
+| `11_filtros_mapa.png` | menu real de filtros do mapa final | recorte do controle de camadas do Folium |
 
 ## Como Executar
 
@@ -551,7 +558,7 @@ Depois execute as células em ordem.
 Instale as dependências:
 
 ```bash
-pip install osmnx networkx pandas numpy folium matplotlib seaborn jupyter
+pip install osmnx networkx pandas numpy folium matplotlib seaborn scikit-learn jupyter
 ```
 
 Abra o notebook:
@@ -577,7 +584,8 @@ ridesmart-aed2/
 |   |-- 07_grafico_tempo_execucao.png
 |   |-- 08_grafico_nos_expandidos.png
 |   |-- 09_grafico_ganho_percentual.png
-|   `-- 10_grafico_impacto_caminhada.png
+|   |-- 10_grafico_impacto_caminhada.png
+|   `-- 11_filtros_mapa.png
 `-- cache/
 ```
 
