@@ -2,7 +2,7 @@
 
 Esta pasta guarda os prints usados no README principal do projeto.
 
-A recomendação é evitar capturas com muitas camadas ligadas ao mesmo tempo. Para o mapa ficar legível, use normalmente a camada **Base** e no máximo uma ou duas rotas por imagem.
+As imagens foram organizadas para documentar os principais resultados do notebook: candidatos ao ponto **P**, rotas com e sem caminhada, trânsito sintético, comparação de critérios, tabelas, gráficos e menu de filtros do mapa final.
 
 ## Imagens disponíveis
 
@@ -20,6 +20,6 @@ A recomendação é evitar capturas com muitas camadas ligadas ao mesmo tempo. P
 | `10_grafico_impacto_caminhada.png` | gráfico de composição do tempo total | print do gráfico correspondente |
 | `11_filtros_mapa.png` | menu real de filtros do mapa final | recorte do controle de camadas do Folium |
 
-## Observação prática
+## Observação sobre os mapas
 
-Para os prints de mapa, deixe o painel de filtros visível quando ele ajudar a entender a camada ligada. Quando a captura ficar muito poluída, aproxime o zoom na rota e deixe apenas o trecho importante visível.
+Os prints de mapa usam poucas camadas por vez para preservar a leitura visual. Essa escolha evita sobreposição excessiva entre rotas e deixa mais clara a comparação representada por cada imagem.

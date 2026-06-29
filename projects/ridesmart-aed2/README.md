@@ -1,5 +1,11 @@
 # RideSmart AED2
 
+## Participantes
+
+- Edivelton Rafaett Silva de Araújo
+- Joanderson Luan da Silva Linhares
+- Francisco Micarlos Teixeira Pinto
+
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=flat-square&logo=python)
 ![OSMnx](https://img.shields.io/badge/OSMnx-OpenStreetMap-green?style=flat-square)
 ![NetworkX](https://img.shields.io/badge/NetworkX-Grafos-orange?style=flat-square)
@@ -323,32 +329,32 @@ No mapa final, os elementos visuais foram separados para evitar confusão:
 
 A cor vermelha foi reservada para o trânsito sintético. As demais rotas usam cores diferentes para facilitar comparações visuais.
 
-## Sugestão de Uso dos Filtros
+## Organização dos Filtros
 
-Para o README e para apresentação, a melhor leitura visual acontece com poucas camadas ligadas.
+O mapa final foi estruturado em camadas para permitir a análise separada dos cenários avaliados. A separação dos filtros evita misturar todas as rotas em uma única visualização e torna possível observar cada resultado individualmente.
 
-Sugestão:
+As camadas foram organizadas da seguinte forma:
 
-- manter a camada **Base** ligada;
-- ligar apenas uma rota por vez quando quiser explicar um resultado isolado;
-- ligar no máximo duas rotas quando quiser comparar cenários;
-- evitar ligar todos os algoritmos ao mesmo tempo, porque o mapa fica poluído.
-
-Comparações recomendadas:
-
-| Objetivo | Filtros sugeridos |
+| Grupo | Função no mapa |
 |---|---|
-| Mostrar os candidatos | apenas mapa inicial |
-| Explicar caminhada | Base + uma rota com caminhada |
-| Comparar caminhar contra não caminhar | Base + rota com caminhada + rota sem caminhada do mesmo algoritmo e critério |
-| Mostrar impacto do trânsito | Base + vias penalizadas + rota com trânsito do mesmo algoritmo |
-| Comparar distância contra tempo | Base + menor distância + tempo sem trânsito do mesmo algoritmo |
+| **Base** | mostra origem **A**, destino **B**, raio **X** e candidatos **P** |
+| **Trânsito sintético** | mostra as vias penalizadas pelo fator de congestionamento |
+| **Casos com caminhada** | mostra as rotas em que o passageiro caminha até **P** antes do embarque |
+| **Caso sem caminhada (A = P)** | mostra as rotas em que o embarque acontece diretamente no ponto **A** |
+
+Dentro dos grupos com e sem caminhada, cada algoritmo possui três critérios de visualização:
+
+| Critério | Interpretação |
+|---|---|
+| rota mais rápida sem trânsito | usa o peso `travel_time` |
+| rota mais rápida com trânsito sintético | usa o peso `traffic_time` |
+| menor rota em distância | usa o peso `length` |
 
 O menu real do mapa final fica organizado assim:
 
 ![Filtros do mapa interativo](images/11_filtros_mapa.png)
 
-Esse painel permite ligar e desligar grupos de camadas. A camada **Base** mostra o contexto do problema. A camada **Trânsito sintético** destaca as vias penalizadas. Os blocos **Casos com caminhada** e **Caso sem caminhada (A = P)** permitem comparar as soluções com e sem deslocamento a pé.
+Esse painel representa a estrutura final do mapa interativo. A camada **Base** mostra o contexto do problema, a camada **Trânsito sintético** destaca as vias penalizadas, e os blocos **Casos com caminhada** e **Caso sem caminhada (A = P)** organizam as soluções comparadas.
 
 ## Tabelas de Resultado
 
@@ -406,7 +412,7 @@ Interpretação esperada:
 - o A* pode ser rápido quando a heurística direciona bem a busca;
 - o Dijkstra bidirecional pode reduzir a exploração ao buscar dos dois lados.
 
-Esse gráfico deve ser usado para discutir desempenho prático, não apenas corretude da rota.
+Esse gráfico apoia a discussão de desempenho prático, não apenas a análise de corretude da rota.
 
 ![Tempo de execução dos algoritmos](images/07_grafico_tempo_execucao.png)
 
@@ -470,7 +476,7 @@ Leitura esperada:
 
 ## Visualizações do Mapa
 
-As imagens abaixo foram geradas a partir de uma execução do notebook. Cada print usa poucas camadas de rota para preservar a leitura e evitar sobreposição visual.
+As imagens abaixo foram geradas a partir de uma execução do notebook. Cada visualização destaca uma parte específica da modelagem ou da comparação algorítmica.
 
 ### 1. Mapa inicial dos candidatos
 
@@ -480,9 +486,9 @@ Mostra **A**, **B**, o raio **X**, os candidatos caminháveis e os candidatos v�
 
 ### 2. Rota com caminhada
 
-Mostra um único filtro com caminhada ativo. A imagem deve evidenciar a caminhada até **P**, a aproximação até o nó de carro e a rota de carro até **B**.
+Mostra uma solução com caminhada. A imagem evidencia a caminhada até **P**, a aproximação até o nó de carro e a rota de carro até **B**.
 
-Camadas usadas:
+Camadas exibidas:
 
 - Base;
 - uma rota com caminhada de apenas um algoritmo e um critério.
@@ -493,7 +499,7 @@ Camadas usadas:
 
 Mostra duas camadas do mesmo algoritmo e critério: uma com caminhada e outra sem caminhada. Essa imagem ajuda a explicar visualmente o ganho.
 
-Camadas usadas:
+Camadas exibidas:
 
 - Base;
 - A* com caminhada, rota mais rápida sem trânsito;
@@ -505,7 +511,7 @@ Camadas usadas:
 
 Mostra as vias penalizadas em vermelho e uma rota calculada com `traffic_time`.
 
-Camadas usadas:
+Camadas exibidas:
 
 - Base;
 - vias penalizadas pelo trânsito sintético;
@@ -517,7 +523,7 @@ Camadas usadas:
 
 Mostra, para um mesmo algoritmo, a rota de menor distância e a rota de menor tempo sem trânsito. Essa imagem evidencia que pesos diferentes podem produzir escolhas diferentes.
 
-Camadas usadas:
+Camadas exibidas:
 
 - Base;
 - menor rota em distância;
@@ -618,3 +624,104 @@ O trânsito também é sintético. Ele não representa dados reais em tempo real
 - Matplotlib;
 - Seaborn;
 - Jupyter Notebook.
+
+## Respostas às Questões do Relatório Final
+
+### 1. Como o problema foi modelado como grafo?
+
+O problema foi modelado como um problema de caminhos mínimos em grafos ponderados extraídos do OpenStreetMap por meio do OSMnx. Foram usados dois grafos diferentes da mesma região:
+
+- um grafo de caminhada, usado para representar o deslocamento do passageiro de **A** até um possível ponto de embarque **P**;
+- um grafo viário direcionado, usado para representar o deslocamento de carro de **P** até o destino **B**.
+
+A decisão central do modelo é escolher um ponto **P** dentro do raio máximo de caminhada **X** que reduza o custo total da viagem, considerando tanto o trecho a pé quanto o trecho feito de carro.
+
+### 2. O que representam os nós e as arestas?
+
+Nos dois grafos, os nós representam pontos da malha urbana, como cruzamentos, conexões de ruas, trechos de calçada e pontos intermediários presentes na base do OpenStreetMap. As arestas representam os segmentos que conectam esses nós.
+
+No grafo de caminhada, as arestas indicam caminhos que podem ser percorridos a pé. No grafo de direção, as arestas indicam trechos viários pelos quais o carro pode circular, respeitando a direção das vias. Como as malhas de pedestre e de carro não são idênticas, o notebook associa cada candidato **P** da malha de caminhada a um nó de carro compatível e próximo, aceitando apenas candidatos cuja distância de encaixe seja pequena.
+
+### 3. Quais pesos foram usados?
+
+Foram usados três pesos principais:
+
+- **distância física**, baseada no comprimento da aresta em metros;
+- **tempo sem trânsito**, estimado a partir da distância e de velocidades atribuídas às vias;
+- **tempo com trânsito sintético**, obtido pela penalização de alguns trechos da rota rápida sem trânsito.
+
+Assim, o mesmo problema pode ser analisado sob critérios diferentes: menor distância, menor tempo sem trânsito e menor tempo com trânsito.
+
+### 4. Como o trânsito sintético alterou as rotas?
+
+O trânsito sintético foi aplicado sobre trechos pertencentes às rotas rápidas sem trânsito. Esses trechos recebem um fator de penalização, aumentando o tempo de travessia das arestas afetadas.
+
+Com isso, uma rota que era boa no cenário livre pode deixar de ser a melhor quando o trânsito é considerado. O objetivo não é simular o trânsito real da cidade, mas criar um cenário controlado para observar se os algoritmos conseguem recalcular caminhos melhores quando certos trechos ficam mais caros.
+
+### 5. Caminhar alguns metros melhorou a solução?
+
+Na execução registrada no projeto, caminhar até um ponto **P** melhorou a solução em alguns cenários. O ganho acontece quando o pequeno deslocamento a pé coloca o passageiro em um ponto de embarque mais favorável para o carro, reduzindo o trecho viário necessário até o destino.
+
+Esse ganho é apresentado nas tabelas e gráficos finais do notebook, comparando o caso **com caminhada** contra o caso **sem caminhada**, em que **P = A**.
+
+### 6. Em quais casos caminhar atrapalhou?
+
+Caminhar pode atrapalhar quando o tempo ou a distância adicionada ao passageiro não é compensada pela redução no trecho de carro. Isso pode ocorrer quando:
+
+- o melhor ponto **P** está muito próximo de **A**, gerando pouco benefício;
+- a malha de caminhada obriga um desvio;
+- o ponto de embarque mais próximo da via de carro exige um encaixe adicional;
+- o trânsito sintético não penaliza a rota original de forma suficiente para justificar a caminhada.
+
+Por isso o notebook mantém também o caso sem caminhada. Se caminhar não trouxer vantagem, o próprio resultado pode indicar que a melhor decisão é embarcar no ponto inicial.
+
+### 7. A menor distância foi também a rota mais rápida?
+
+Nem sempre. A menor distância minimiza metros percorridos, enquanto a rota mais rápida minimiza tempo. Uma rota mais curta pode passar por vias mais lentas, por trechos penalizados pelo trânsito sintético ou por ruas com menor velocidade estimada.
+
+Por esse motivo, o notebook separa explicitamente os filtros de **menor distância**, **rota mais rápida sem trânsito** e **rota mais rápida com trânsito sintético**.
+
+### 8. O A* expandiu menos nós que o Dijkstra?
+
+Em geral, espera-se que o A* expanda menos nós que o Dijkstra quando a heurística é bem escolhida, porque ele usa uma estimativa da distância até o destino para direcionar a busca. No projeto, a heurística usada é baseada na distância geográfica em linha reta.
+
+Ainda assim, esse comportamento depende da topologia do grafo, dos pesos e dos pontos escolhidos. Em alguns casos, as diferenças podem ser pequenas ou até variar, especialmente quando os algoritmos encontram rotas muito parecidas.
+
+### 9. O Dijkstra com Heap foi mais eficiente que o Dijkstra simples?
+
+Sim. O Dijkstra com heap tende a ser mais eficiente porque usa uma fila de prioridade para escolher o próximo nó de menor custo. O Dijkstra simples, implementado como versão base, faz essa escolha de forma menos otimizada.
+
+Essa diferença aparece principalmente nas métricas de tempo de execução. Ambos devem encontrar o mesmo custo ótimo para o mesmo grafo e o mesmo peso, mas o Dijkstra com heap tende a fazer isso com melhor desempenho computacional.
+
+### 10. O algoritmo da literatura trouxe algum ganho?
+
+O Dijkstra bidirecional trouxe ganho como alternativa de busca ponto a ponto. A ideia dele é iniciar a busca simultaneamente da origem e do destino, reduzindo o espaço de exploração até que as duas frentes se encontrem.
+
+No contexto do projeto, ele serve como comparação com os outros métodos: o Dijkstra simples representa a base menos otimizada, o Dijkstra com heap representa a otimização clássica com fila de prioridade, o A* usa heurística, e o bidirecional explora a simetria da busca entre origem e destino.
+
+### 11. Quais limitações existem na modelagem proposta?
+
+A modelagem possui algumas limitações importantes:
+
+- o trânsito é sintético e não usa dados reais em tempo real;
+- o embarque é aproximado por nós do grafo, e não por qualquer ponto contínuo ao longo da rua;
+- a qualidade dos resultados depende da completude dos dados do OpenStreetMap;
+- a velocidade de caminhada é tratada de forma simplificada;
+- fatores como segurança, iluminação, acessibilidade, calçadas ruins, faixas de pedestre e locais proibidos para parada não são avaliados de forma completa;
+- o modelo compara critérios separadamente, sem transformar todos eles em uma única função multiobjetivo com preferências do usuário.
+
+Mesmo com essas limitações, a modelagem é adequada para o objetivo da disciplina, pois expressa o problema como grafos ponderados e permite comparar algoritmos clássicos de caminhos mínimos.
+
+### 12. Como o modelo poderia ser aproximado de um aplicativo real de mobilidade?
+
+Para aproximar o modelo de um aplicativo real, seria necessário incorporar dados dinâmicos e restrições práticas da operação urbana. Algumas extensões naturais seriam:
+
+- usar trânsito real por API ou por dados históricos de velocidade;
+- considerar a posição real de motoristas disponíveis;
+- permitir preferências do passageiro, como caminhar pouco, economizar tempo ou evitar determinados tipos de via;
+- validar pontos de embarque com regras de segurança e parada permitida;
+- considerar acessibilidade, iluminação, calçadas, travessias e relevo;
+- atualizar a rota em tempo real conforme trânsito e posição do veículo mudam;
+- transformar o cálculo em uma função multiobjetivo que combine tempo, distância, custo, conforto e segurança.
+
+Assim, o projeto funciona como uma base acadêmica para entender o problema. Um aplicativo real exigiria mais dados, atualização contínua e regras operacionais, mas a estrutura principal de grafos, pesos e caminhos mínimos continuaria sendo uma parte central da solução.
