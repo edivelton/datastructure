@@ -1,25 +1,15 @@
 # Imagens do RideSmart AED2
 
-Esta pasta guarda os prints usados no README principal do projeto.
+Esta pasta deve receber os prints usados no README principal do projeto.
 
-As imagens foram organizadas para documentar os principais resultados do notebook: candidatos ao ponto **P**, rotas com e sem caminhada, trânsito sintético, comparação de critérios, tabelas, gráficos e menu de filtros do mapa final.
+Sugestão de arquivos:
 
-## Imagens disponíveis
+```text
+01_mapa_inicial_candidatos.png
+02_mapa_final_filtros.png
+03_transito_sintetico.png
+04_comparacao_rotas.png
+05_tabela_ganho.png
+```
 
-| Arquivo | Conteúdo | Camadas exibidas |
-|---|---|---|
-| `01_mapa_inicial_candidatos.png` | mapa inicial com **A**, **B**, raio **X** e candidatos **P** | mapa inicial do notebook |
-| `02_rota_com_caminhada.png` | uma rota com caminhada até **P** | Base + uma rota com caminhada |
-| `03_comparacao_com_sem_caminhada.png` | comparação entre caminhar e não caminhar | Base + duas camadas do mesmo algoritmo e critério |
-| `04_transito_sintetico.png` | vias penalizadas e rota com trânsito | Base + trânsito sintético + uma rota com trânsito |
-| `05_comparacao_criterios.png` | diferença entre menor distância e menor tempo | Base + duas rotas do mesmo algoritmo |
-| `06_tabela_ganho.png` | tabela `df_ganho_ao_caminhar` | print da tabela no notebook |
-| `07_grafico_tempo_execucao.png` | gráfico de tempo de execução | print do gráfico correspondente |
-| `08_grafico_nos_expandidos.png` | gráfico de nós expandidos | print do gráfico correspondente |
-| `09_grafico_ganho_percentual.png` | gráfico de ganho percentual | print do gráfico correspondente |
-| `10_grafico_impacto_caminhada.png` | gráfico de composição do tempo total | print do gráfico correspondente |
-| `11_filtros_mapa.png` | menu real de filtros do mapa final | recorte do controle de camadas do Folium |
-
-## Observação sobre os mapas
-
-Os prints de mapa usam poucas camadas por vez para preservar a leitura visual. Essa escolha evita sobreposição excessiva entre rotas e deixa mais clara a comparação representada por cada imagem.
+Depois que as imagens forem adicionadas, o README principal pode incorporar os prints diretamente.
