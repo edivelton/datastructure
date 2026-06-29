@@ -1,10 +1,14 @@
 # RideSmart AED2
 
-## Participantes
+## Equipe
 
-- Edivelton Rafaett Silva de Araújo
-- Joanderson Luan da Silva Linhares
-- Francisco Micarlos Teixeira Pinto
+| Nº | Integrante |
+|---:|---|
+| 1 | Edivelton Rafaett Silva de Araújo |
+| 2 | Joanderson Luan da Silva Linhares |
+| 3 | Francisco Micarlos Teixeira Pinto |
+
+## Tecnologias Principais
 
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=flat-square&logo=python)
 ![OSMnx](https://img.shields.io/badge/OSMnx-OpenStreetMap-green?style=flat-square)
